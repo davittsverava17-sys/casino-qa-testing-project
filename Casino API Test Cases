@@ -1,0 +1,75 @@
+# Casino API Test Cases
+
+## 1. Login and Authentication
+
+| ID | Test Scenario | Expected Result |
+|---|---|---|
+| TC-001 | Login with valid credentials | Login succeeds and access/refresh tokens are returned |
+| TC-002 | Login with an incorrect password | Request is rejected with an appropriate error |
+| TC-003 | Login with a non-existent user | Request is rejected |
+| TC-004 | Access a protected endpoint without a token | Access is denied |
+| TC-005 | Access a protected endpoint with an invalid token | Access is denied |
+| TC-006 | Use an expired access token | Access is denied until a valid token is obtained |
+| TC-007 | Refresh an access token using a valid refresh token | A new access token is returned |
+| TC-008 | Refresh using an invalid refresh token | Token refresh is rejected |
+
+## 2. Betting API
+
+| ID | Test Scenario | Expected Result |
+|---|---|---|
+| TC-009 | Place a bet with valid data and sufficient balance | Bet is processed and wallet balance is updated correctly |
+| TC-010 | Place a bet with insufficient balance | Bet is rejected and balance remains unchanged |
+| TC-011 | Place a bet with a negative amount | Request is rejected |
+| TC-012 | Place a bet with a missing amount | Request is rejected with a validation error |
+| TC-013 | Place a bet for a non-existent game | Request is rejected |
+| TC-014 | Place a bet for an inactive game | Request is rejected |
+| TC-015 | Submit a bet with a mismatched user ID and JWT | Request is rejected with HTTP 403 |
+| TC-016 | Submit a bet with a duplicate event ID | Duplicate processing is prevented; the API returns the documented response, such as HTTP 409 |
+
+## 3. Wallet and Database Validation
+
+| ID | Test Scenario | Expected Result |
+|---|---|---|
+| TC-017 | Check wallet balance after a successful bet | Balance reflects the bet amount |
+| TC-018 | Check wallet balance after a rejected bet | Balance remains unchanged |
+| TC-019 | Verify a successful bet in the database | The expected bet record exists |
+| TC-020 | Verify transaction history | The expected transaction records are returned |
+| TC-021 | Compare API balance with database balance | Both values match |
+| TC-022 | Submit concurrent betting requests | Balance and transaction records remain consistent; no overspending occurs |
+
+## 4. Event Processing and Webhooks
+
+| ID | Test Scenario | Expected Result |
+|---|---|---|
+| TC-023 | Place a bet and verify the Kafka event | The expected event is published and can be consumed |
+| TC-024 | Send a webhook with a valid HMAC signature | Signature validation succeeds |
+| TC-025 | Send a webhook with an invalid signature | Signature validation fails |
+| TC-026 | Process the same event more than once | Duplicate processing is prevented according to the event-handling rules |
+
+## 5. Performance Testing
+
+| ID | Test Scenario | Expected Result |
+|---|---|---|
+| TC-027 | Run multiple concurrent API requests | The API responds within the defined performance thresholds |
+| TC-028 | Monitor response times during a k6 load test | Response-time metrics are collected |
+| TC-029 | Monitor HTTP errors during a load test | Error rates are recorded and investigated |
+| TC-030 | Compare application metrics in Grafana | Dashboard metrics are consistent with the test results |
+
+## 6. Jackpot Testing — Test Design
+
+| ID | Test Scenario | Expected Result |
+|---|---|---|
+| TC-031 | Verify jackpot eligibility rules | Only eligible bets or players qualify |
+| TC-032 | Trigger a jackpot-winning event in a test environment | The event is processed according to the jackpot rules |
+| TC-033 | Verify jackpot award and wallet update | Award and balance changes are consistent |
+| TC-034 | Submit the same jackpot event twice | The jackpot award is not duplicated |
+| TC-035 | Simulate an interruption during jackpot processing | Recovery does not result in a duplicate award or inconsistent state |
+
+**Note:** Jackpot scenarios are test designs. They require a jackpot implementation or a suitable test simulator before execution.
+
+## Test Execution Notes
+
+- Record actual results and execution status when each test is run.
+- Attach evidence such as Postman responses, SQL query results, and application logs.
+- Verify expected behavior against the API specification and business rules.
+- Do not include production credentials, secrets, or real customer data.
