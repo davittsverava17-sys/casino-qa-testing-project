@@ -45,7 +45,7 @@ The following screenshots demonstrate API testing scenarios executed using Postm
 ### 1. Successful BET
 Verifies that a valid BET request is processed successfully and returns HTTP 200.
 
-![Successful BET](screenshots/postman/1.01-successful-bet.png.png)
+![Successful BET](screenshots/postman/01-successful-bet.png.png)
 
 ### 2. Insufficient Balance
 Verifies that a BET request is rejected when the user has insufficient funds.
