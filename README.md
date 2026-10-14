@@ -74,3 +74,38 @@ Verifies that a repeated event ID is detected and rejected with HTTP 409.
 Verifies that a request referencing a nonexistent game is rejected with HTTP 404.
 
 ![Invalid Game ID](screenshots/postman/06-invalid-game-id.png)
+
+
+
+## Kafka Event Testing
+
+Kafka testing was performed to verify event publishing, message content, and duplicate event handling in the casino API.
+
+### Test Scenarios
+
+- Verified that the `bets` Kafka topic exists.
+- Consumed and inspected `BET_PLACED` events using the Kafka Console Consumer.
+- Checked event fields, including `eventId`, `betId`, `userId`, `gameId`, and `amount`.
+- Sent a duplicate BET request using an already processed `eventId`.
+- Verified that the API rejected the duplicate request with `409 Conflict` and returned `Event already processed`.
+- Queried the MySQL `bets` table to verify that the tested `eventId` had only one record.
+
+### Screenshots
+
+**1. Kafka Topic Verification**
+
+![Kafka Topics](screenshots/kafka/01-kafka-topics.png)
+
+**2. Kafka Consumer — BET_PLACED Event**
+
+![Kafka Consumer BET Event](screenshots/kafka/02-kafka-consumer-bet-event.png)
+
+**3. Duplicate Event Rejection — HTTP 409**
+
+![Duplicate Event Rejection](screenshots/kafka/03-duplicate-event-rejected.png)
+
+**4. SQL Verification — Duplicate Prevention**
+
+![SQL Duplicate Verification](screenshots/kafka/04-sql-duplicate-verification.png)
+
+
