@@ -46,7 +46,7 @@ The following screenshots demonstrate API testing scenarios executed using Postm
 
 Verifies that a valid BET request is processed successfully and returns HTTP 200.
 
-![Successful BET](https://github.com/davittsverava17-sys/casino-qa-testing-project/raw/main/screenshots/postman/01-successful-bet.png)
+1. 01-successful-bet.png
 
 ### 2. Insufficient Balance
 
