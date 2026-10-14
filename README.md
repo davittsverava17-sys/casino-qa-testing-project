@@ -59,6 +59,7 @@ Verifies that a BET request is rejected when the user has insufficient funds.
 Verifies that an invalid or expired access token is rejected with HTTP 401.
 
 ![Invalid JWT](screenshots/postman/03-invalid-jwt.png)
+
 ### 4. User ID Mismatch
 Verifies that a user cannot place a bet on behalf of another user.
 
