@@ -46,20 +46,19 @@ The following screenshots demonstrate API testing scenarios executed using Postm
 
 Verifies that a valid BET request is processed successfully and returns HTTP 200.
 
-![Successful BET](screenshots/postman/1.01-successful-bet.png)
+![Successful BET](screenshots/postman/01-successful-bet.png)
 
 ### 2. Insufficient Balance
 
 Verifies that a BET request is rejected when the user has insufficient funds.
 
-![Insufficient Balance](https://github.com/davittsverava17-sys/casino-qa-testing-project/raw/main/screenshots/postman/02-insufficient-balance.png)
+![Insufficient Balance](screenshots/postman/02-insufficient-balance.png)
 
 ### 3. Invalid JWT
 
 Verifies that an invalid or expired access token is rejected with HTTP 401.
 
-![Invalid JWT](https://github.com/davittsverava17-sys/casino-qa-testing-project/raw/main/screenshots/postman/03-invalid-jwt.png)
-
+![Invalid JWT](screenshots/postman/03-invalid-jwt.png)
 ### 4. User ID Mismatch
 Verifies that a user cannot place a bet on behalf of another user.
 
