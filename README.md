@@ -147,9 +147,20 @@ The project includes a casino gaming interface with Blackjack, Roulette, and Slo
 
 ## Playwright E2E Testing
 
-Playwright was used to automate an end-to-end test of the casino application. The test result provides evidence that the tested scenario completed successfully.
+Playwright was used to automate end-to-end testing of the casino application across three browser projects: Chromium, Firefox, and WebKit.
 
-### Test Execution Result
+### Test Coverage
 
-![Playwright Test Result](screenshots/playwright/01-playwright-test-pass.png)
+- Executed automated end-to-end tests across three browser engines.
+- Verified the tested casino application flow.
+- Reviewed test execution results and generated Playwright reports.
+- Confirmed that the tested scenarios passed in the configured browser projects.
+
+### Test Execution Report
+
+The Playwright HTML report provides a detailed overview of test execution results, including test status, duration, and browser project.
+
+![Playwright Test Report](screenshots/playwright/01-playwright-test-report.png)
+
+ 
 
