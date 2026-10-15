@@ -93,6 +93,13 @@ Verifies that a LOSS transaction is processed correctly and that the API returns
 
 ![LOSS Processing](screenshots/postman/10-loss-processing.png)
 
+
+
+
+
+
+
+
 ## Kafka Event Testing
 
 Kafka testing was performed to verify event publishing, message content, and duplicate event handling in the casino API.
