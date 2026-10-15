@@ -78,13 +78,20 @@ Verifies that a request referencing a nonexistent game is rejected with HTTP 404
 7. Invalid Amount
 
 Verifies that the API rejects a BET request with an invalid amount, such as a zero or negative value, and returns the expected error response.
+
 ![Invalid Amount](screenshots/postman/07-invalid-Amount.PNG)
 
 8. WIN Processing
 
 Verifies that a WIN request is processed successfully and returns the expected API response. Postman test scripts are used to validate the HTTP status code and response data.
+
 ![WIN Processing](screenshots/postman/09-win-processing.png)
 
+9. LOSS Processing
+
+Verifies that a LOSS transaction is processed correctly and that the API returns the expected response. The test checks the transaction result and helps validate the expected behavior of the betting flow.
+
+![LOSS Processing](screenshots/postman/10-loss-processing.png)
 
 ## Kafka Event Testing
 
