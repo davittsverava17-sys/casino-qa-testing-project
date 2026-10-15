@@ -132,3 +132,15 @@ Kafka testing was performed to verify event publishing, message content, and dup
 ![SQL Duplicate Verification](screenshots/kafka/04-sql-duplicate-verification.png)
 
 
+
+
+
+## Casino Frontend
+
+The project includes a casino gaming interface with Blackjack, Roulette, and Slots. This section demonstrates the application UI used for functional testing.
+
+### Frontend Screenshot
+
+![Casino Frontend](screenshots/frontend/01-casino-frontend.png)
+
+
