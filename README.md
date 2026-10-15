@@ -144,3 +144,12 @@ The project includes a casino gaming interface with Blackjack, Roulette, and Slo
 ![Casino Frontend](screenshots/frontend/01-casino-frontend.png)
 
 
+
+## Playwright E2E Testing
+
+Playwright was used to automate an end-to-end test of the casino application. The test result provides evidence that the tested scenario completed successfully.
+
+### Test Execution Result
+
+![Playwright Test Result](screenshots/playwright/01-playwright-test-pass.png)
+
