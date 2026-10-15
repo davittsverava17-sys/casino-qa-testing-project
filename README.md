@@ -75,6 +75,9 @@ Verifies that a request referencing a nonexistent game is rejected with HTTP 404
 
 ![Invalid Game ID](screenshots/postman/06-invalid-game-id.png)
 
+![Invalid Amount](screenshots/postman/07-invalid-Amount.PNG)
+
+![WIN Processing](screenshots/postman/09-win-processing.png)
 
 
 ## Kafka Event Testing
