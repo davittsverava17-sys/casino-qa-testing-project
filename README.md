@@ -162,5 +162,29 @@ The Playwright HTML report provides a detailed overview of test execution result
 
 ![Playwright Test Report](screenshots/playwright/01-playwright-test-pass.png)
 
- 
+
+
+ ## Webhook Testing
+
+Webhook testing was performed to verify secure event delivery from the Casino API to the Webhook Receiver.
+
+### Test Coverage
+
+- **Valid HMAC SHA-256 Signature:** Verified that a valid webhook signature is accepted.
+- **Webhook Payload Validation:** Checked the received BET event payload, including `eventId`, `betId`, `userId`, `gameId`, `amount`, `result`, and `timestamp`.
+- **Invalid Signature:** Verified that a request with an invalid signature is rejected with HTTP `401 Unauthorized`.
+
+### Webhook Testing Screenshots
+
+**1. Valid Signature Verification**
+
+![Valid Webhook Signature](screenshots/webhook/01-webhook-signature-verification.png)
+
+**2. Webhook Payload**
+
+![Webhook Payload](screenshots/webhook/02-webhook-payload.png)
+
+**3. Invalid Signature Rejection**
+
+![Invalid Webhook Signature](screenshots/webhook/03-invalid-signature.png)
 
