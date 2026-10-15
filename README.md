@@ -160,7 +160,7 @@ Playwright was used to automate end-to-end testing of the casino application acr
 
 The Playwright HTML report provides a detailed overview of test execution results, including test status, duration, and browser project.
 
-![Playwright Test Report](screenshots/playwright/01-playwright-test-report.png)
+![Playwright Test Report](screenshots/playwright/01-playwright-test-pass.png)
 
  
 
