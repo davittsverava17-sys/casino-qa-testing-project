@@ -217,3 +217,61 @@ WebSocket testing was performed using the browser's Developer Tools to inspect r
 
 ![WebSocket Game Action](./screenshots/websocket/03-websocket-game-action.png)
 
+
+
+# k6 Performance Testing — Casino API
+
+## Overview
+This project uses Grafana k6 to perform load testing against a Casino REST API. The goal is to evaluate API responsiveness, request throughput, and behavior under concurrent virtual users.
+
+## Test Configuration
+- **Tool:** Grafana k6
+- **Test script:** `test.js`
+- **Virtual Users:** 50
+- **Test duration:** 50 seconds
+- **Test scenarios:** Login and BET API requests
+
+## Test Results
+
+| Metric | Result |
+|---|---:|
+| Virtual Users (VUs) | 50 |
+| Total HTTP Requests | 14,602 |
+| Requests per Second (RPS) | 290.35 |
+| Average Response Time | 171.61 ms |
+| Median Response Time | 105.89 ms |
+| 90th Percentile (p90) | 338.39 ms |
+| 95th Percentile (p95) | 356.81 ms |
+| HTTP Request Failure Rate | 0% |
+| Checks Passed | 21,903 (100%) |
+| Checks Failed | 0 |
+
+## Validations
+The test script performed checks for:
+- Successful login response (`200 OK`)
+- Access token availability
+- BET request completion
+
+## QA Focus Areas
+- API response time under load
+- Request throughput and concurrent user behavior
+- Authentication and access token handling
+- HTTP status code validation
+- Duplicate BET requests and `409 Conflict` handling
+- Response validation and potential failures under load
+
+## Notes
+The results above reflect one local test execution. A 0% HTTP request failure rate and 100% successful checks do not independently confirm that all business rules were satisfied. HTTP status validation and duplicate event handling should be verified explicitly.
+
+## Tools
+- Grafana k6
+- JavaScript
+- Casino REST API
+- Postman
+
+## Evidence
+Screenshots of the k6 execution results will be added to this folder.
+
+## Author
+Casino QA Testing Portfolio
+
