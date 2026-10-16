@@ -277,7 +277,7 @@ Screenshots of the k6 execution results will be added to this folder.
 
 The following screenshot shows the results of a local k6 load test with 50 virtual users over 50 seconds.
 
-![k6 Load Test Results](01-k6-load-test-results.png)
+View k6 Load Test Screenshot
 
 
 
