@@ -188,3 +188,29 @@ Webhook testing was performed to verify secure event delivery from the Casino AP
 
 ![Invalid Webhook Signature](screenshots/webhook/03-invalid-signature.png)
 
+
+
+## WebSocket Testing
+
+WebSocket testing was performed using the browser's Developer Tools to inspect real-time communication in the casino application.
+
+### Test Coverage
+
+- **WebSocket Connection:** Checked the WebSocket connection in the browser's Network panel.
+- **Messages / Frames:** Inspected WebSocket messages to identify sent and received data.
+- **Game Action Behavior:** Performed a game action and verified that a new WebSocket message appeared.
+- **Real-Time Communication:** Observed message activity during interaction with the casino application.
+
+### WebSocket Testing Screenshots
+
+**1. WebSocket Connection**
+
+![WebSocket Connection](screenshots/websocket/01-websocket-connection.png)
+
+**2. WebSocket Messages / Frames**
+
+![WebSocket Messages](screenshots/websocket/02-websocket-messages.png)
+
+**3. WebSocket Message During Game Action**
+
+![WebSocket Game Action](screenshots/websocket/03-websocket-game-action.png)
