@@ -252,35 +252,17 @@ The test script performed checks for:
 - Access token availability
 - BET request completion
 
-## QA Focus Areas
-- API response time under load
-- Request throughput and concurrent user behavior
-- Authentication and access token handling
-- HTTP status code validation
-- Duplicate BET requests and `409 Conflict` handling
-- Response validation and potential failures under load
+ 
 
-## Notes
-The results above reflect one local test execution. A 0% HTTP request failure rate and 100% successful checks do not independently confirm that all business rules were satisfied. HTTP status validation and duplicate event handling should be verified explicitly.
+ 
 
-## Tools
-- Grafana k6
-- JavaScript
-- Casino REST API
-- Postman
 
 ## Evidence
-Screenshots of the k6 execution results will be added to this folder.
-## Evidence
+ ![k6 Load Test Results](01-k6-load-test-results.png)
 
-### k6 Load Test Results
-
-The following screenshot shows the results of a local k6 load test with 50 virtual users over 50 seconds.
-
-View k6 Load Test Screenshot
+[View k6 Load Test Screenshot](01-k6-load-test-results.png)
 
 
 
-## Author
-Casino QA Testing Portfolio
+ 
 
