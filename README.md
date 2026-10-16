@@ -225,7 +225,7 @@ WebSocket testing was performed using the browser's Developer Tools to inspect r
 This project uses Grafana k6 to perform load testing against a Casino REST API. The goal is to evaluate API responsiveness, request throughput, and behavior under concurrent virtual users.
 
 ## Test Configuration
-- **Tool:** Grafana k6
+- **Tool:**  k6
 - **Test script:** `test.js`
 - **Virtual Users:** 50
 - **Test duration:** 50 seconds
