@@ -258,9 +258,14 @@ The test script performed checks for:
 
 
 ## Evidence
- ![k6 Load Test Results](01-k6-load-test-results.png)
+  
+## Evidence
 
-[View k6 Load Test Screenshot](01-k6-load-test-results.png)
+### k6 Load Test Results
+
+![k6 Load Test Results](../screenshots/k6-performance-testing/01-k6-load-test-results.png)
+
+[View k6 Load Test Screenshot](../screenshots/k6-performance-testing/01-k6-load-test-results.png)
 
 
 
