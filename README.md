@@ -259,13 +259,11 @@ The test script performed checks for:
 
 ## Evidence
   
-## Evidence
+ 
 
 ### k6 Load Test Results
 
-![k6 Load Test Results](../screenshots/k6-performance-testing/01-k6-load-test-results.png)
-
-[View k6 Load Test Screenshot](../screenshots/k6-performance-testing/01-k6-load-test-results.png)
+![k6 Load Test Results](https://raw.githubusercontent.com/davittsverava17-sys/casino-qa-testing-project/main/screenshots/k6-performance-testing/01-k6-load-test-results.png)
 
 
 
