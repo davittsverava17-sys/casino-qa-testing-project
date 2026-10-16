@@ -207,13 +207,13 @@ WebSocket testing was performed using the browser's Developer Tools to inspect r
 
 **1. WebSocket Connection**
 
-![WebSocket Connection](./screenshots/websocket/01-websocket-connection.png)
+![WebSocket Connection](./screenshots/screenshots/websocket/01-websocket-connection.png)
 
 **2. WebSocket Messages / Frames**
 
-![WebSocket Messages](./screenshots/websocket/02-websocket-messages.png)
+![WebSocket Messages](./screenshots/screenshots/websocket/02-websocket-messages.png)
 
 **3. WebSocket Message During Game Action**
 
-![WebSocket Game Action](./screenshots/websocket/03-websocket-game-action.png)
+![WebSocket Game Action](./screenshots/screenshots/websocket/03-websocket-game-action.png)
 
