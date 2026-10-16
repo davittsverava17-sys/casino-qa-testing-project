@@ -279,7 +279,6 @@ The following screenshot shows the results of a local k6 load test with 50 virtu
 
 ![k6 Load Test Results](01-k6-load-test-results.png)
 
-[View k6 Load Test Screenshot](01-k6-load-test-results.png)
 
 
 ## Author
