@@ -214,3 +214,4 @@ WebSocket testing was performed using the browser's Developer Tools to inspect r
 **3. WebSocket Message During Game Action**
 
 ![WebSocket Game Action](screenshots/websocket/03-websocket-game-action.png)
+
