@@ -267,5 +267,24 @@ The test script performed checks for:
 
 
 
+## Prometheus & Grafana Monitoring
+
+Prometheus was used to collect application metrics, while Grafana was used to visualize monitoring data through dashboards.
+
+### Monitoring Screenshots
+
+**1. Grafana Dashboard**
+
+![Grafana Dashboard](../../raw/main/screenshots/monitoring/01-grafana-dashboard.png)
+
+**2. Prometheus API Health Check**
+
+![Prometheus API Health](../../raw/main/screenshots/monitoring/02-prometheus-api-health.png)
+
+**3. Grafana k6 Load Test Monitoring**
+
+![Grafana k6 Load Test](../../raw/main/screenshots/monitoring/03-grafana-k6-load-test.png)
+
+
  
 
