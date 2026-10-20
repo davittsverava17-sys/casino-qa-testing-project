@@ -4,56 +4,61 @@
 
 | ID | Test Scenario | Expected Result |
 |---|---|---|
-| TC-001 | Login with valid credentials | Login succeeds and access/refresh tokens are returned |
-| TC-002 | Login with an incorrect password | Request is rejected with an appropriate error |
-| TC-003 | Login with a non-existent user | Request is rejected |
-| TC-004 | Access a protected endpoint without a token | Access is denied |
-| TC-005 | Access a protected endpoint with an invalid token | Access is denied |
-| TC-006 | Use an expired access token | Access is denied until a valid token is obtained |
-| TC-007 | Refresh an access token using a valid refresh token | A new access token is returned |
-| TC-008 | Refresh using an invalid refresh token | Token refresh is rejected |
+| TC-001 | Login with valid credentials | HTTP 200 is returned; the response contains valid access and refresh tokens. |
+| TC-002 | Login with an incorrect password | Authentication is rejected; an appropriate error response is returned; no tokens are issued. |
+| TC-003 | Login with a non-existent user | Authentication is rejected; an appropriate error response is returned; no tokens are issued. |
+| TC-004 | Access a protected endpoint without a token | HTTP 401 is returned; protected resources are not accessed. |
+| TC-005 | Access a protected endpoint with an invalid token | HTTP 401 is returned; the request is rejected. |
+| TC-006 | Use an expired access token | HTTP 401 is returned; access is denied until a valid access token is obtained. |
+| TC-007 | Refresh an access token using a valid refresh token | HTTP 200 is returned; a valid new access token is issued. |
+| TC-008 | Refresh using an invalid refresh token | The refresh request is rejected; no valid access token is issued. |
 
 ## 2. Betting API
 
 | ID | Test Scenario | Expected Result |
 |---|---|---|
-| TC-009 | Place a bet with valid data and sufficient balance | Bet is processed and wallet balance is updated correctly |
-| TC-010 | Place a bet with insufficient balance | Bet is rejected and balance remains unchanged |
-| TC-011 | Place a bet with a negative amount | Request is rejected |
-| TC-012 | Place a bet with a missing amount | Request is rejected with a validation error |
-| TC-013 | Place a bet for a non-existent game | Request is rejected |
-| TC-014 | Place a bet for an inactive game | Request is rejected |
-| TC-015 | Submit a bet with a mismatched user ID and JWT | Request is rejected with HTTP 403 |
-| TC-016 | Submit a bet with a duplicate event ID | Duplicate processing is prevented; the API returns the documented response, such as HTTP 409 |
+| TC-009 | Place a bet with valid data and sufficient balance | HTTP 200 is returned; a bet record is created; the wallet balance decreases by the bet amount; the response contains the expected bet details. |
+| TC-010 | Place a bet with insufficient balance | The request is rejected; the wallet balance remains unchanged; no successful bet or debit transaction is recorded. |
+| TC-011 | Place a bet with a negative amount | The request is rejected with a validation error; the wallet balance remains unchanged. |
+| TC-012 | Place a bet with a missing amount | The request is rejected with a validation error; no bet is processed and the wallet balance remains unchanged. |
+| TC-013 | Place a bet for a non-existent game | HTTP 404 is returned when consistent with the API specification; no bet is processed and the wallet balance remains unchanged. |
+| TC-014 | Place a bet for an inactive game | The request is rejected according to the API's game-status rules; no bet is processed and the wallet balance remains unchanged. |
+| TC-015 | Submit a bet with a mismatched user ID and JWT | HTTP 403 is returned; the request is rejected and the other user's wallet is not modified. |
+| TC-016 | Submit a bet with a duplicate event ID | The duplicate request is rejected according to the API specification, such as HTTP 409; the original bet is not processed again and no additional debit occurs. |
 
 ## 3. Wallet and Database Validation
 
 | ID | Test Scenario | Expected Result |
 |---|---|---|
-| TC-017 | Check wallet balance after a successful bet | Balance reflects the bet amount |
-| TC-018 | Check wallet balance after a rejected bet | Balance remains unchanged |
-| TC-019 | Verify a successful bet in the database | The expected bet record exists |
-| TC-020 | Verify transaction history | The expected transaction records are returned |
-| TC-021 | Compare API balance with database balance | Both values match |
-| TC-022 | Submit concurrent betting requests | Balance and transaction records remain consistent; no overspending occurs |
+| TC-017 | Check wallet balance after a successful bet | The returned balance equals the initial balance minus the accepted bet amount, subject to the applicable business rules. |
+| TC-018 | Check wallet balance after a rejected bet | The wallet balance matches the initial balance; no unintended debit is recorded. |
+| TC-019 | Verify a successful bet in the database | Exactly one corresponding bet record exists with the expected user ID, game ID, amount, result, and event ID. |
+| TC-020 | Verify transaction history | The transaction history contains the expected transaction records with correct amounts and transaction types. |
+| TC-021 | Compare API balance with database balance | The API balance matches the corresponding database wallet balance after accounting for transaction completion and decimal precision. |
+| TC-022 | Submit concurrent betting requests | Wallet balance and transaction records remain consistent; the balance does not become negative and no duplicate debit occurs. Requests that cannot be fulfilled are rejected appropriately. |
 
 ## 4. Event Processing and Webhooks
 
 | ID | Test Scenario | Expected Result |
 |---|---|---|
-| TC-023 | Place a bet and verify the Kafka event | The expected event is published and can be consumed |
-| TC-024 | Send a webhook with a valid HMAC signature | Signature validation succeeds |
-| TC-025 | Send a webhook with an invalid signature | Signature validation fails |
-| TC-026 | Process the same event more than once | Duplicate processing is prevented according to the event-handling rules |
+| TC-023 | Place a bet and verify the Kafka event | A corresponding Kafka event is published and can be consumed; its event ID and relevant bet details match the processed operation. |
+| TC-024 | Send a webhook with a valid HMAC signature | The signature is successfully verified; the receiver accepts the payload for processing according to the webhook contract. |
+| TC-025 | Send a webhook with an invalid signature | Signature verification fails; the webhook is rejected and the payload is not processed as an authenticated event. |
+| TC-026 | Process the same event more than once | Duplicate processing is prevented according to the event-handling rules; no duplicate financial operation occurs. |
 
 ## 5. Performance Testing
 
 | ID | Test Scenario | Expected Result |
 |---|---|---|
-| TC-027 | Run multiple concurrent API requests | The API responds within the defined performance thresholds |
-| TC-028 | Monitor response times during a k6 load test | Response-time metrics are collected |
-| TC-029 | Monitor HTTP errors during a load test | Error rates are recorded and investigated |
-| TC-030 | Compare application metrics in Grafana | Dashboard metrics are consistent with the test results |
+| TC-027 | Run multiple concurrent API requests | The API handles the configured load within the predefined response-time and error-rate thresholds; unexpected failures are investigated. |
+| TC-028 | Monitor response times during a k6 load test | k6 records response-time metrics, including average and percentile response times such as p95 and p99, where configured. |
+| TC-029 | Monitor HTTP errors during a load test | HTTP error counts and rates are recorded; unexpected status codes and failed checks are identified and investigated. |
+| TC-030 | Compare application metrics in Grafana | Grafana displays the expected available application metrics, and the observed values are consistent with the corresponding test results and metric definitions. |
+
+  
+
+
+ 
 
 ## 6. Jackpot Testing — Test Design
 
@@ -67,9 +72,49 @@
 
 **Note:** Jackpot scenarios are test designs. They require a jackpot implementation or a suitable test simulator before execution.
 
-## Test Execution Notes
+ 
 
-- Record actual results and execution status when each test is run.
-- Attach evidence such as Postman responses, SQL query results, and application logs.
-- Verify expected behavior against the API specification and business rules.
-- Do not include production credentials, secrets, or real customer data.
+
+
+## 7. Betting Validation and Business Rules
+
+| ID     | Test Scenario                                                     | Expected Result                                             |
+| ------ | ----------------------------------------------------------------- | ----------------------------------------------------------- |
+| TC-036 | Place a bet with an amount of zero                                | Request is rejected and wallet balance remains unchanged    |
+| TC-037 | Place a bet with a non-numeric amount                             | Request is rejected with a validation error                 |
+| TC-038 | Place a bet with an amount exceeding the configured maximum limit | Request is rejected according to the betting limits         |
+| TC-039 | Submit a bet with a missing or empty event ID                     | Request is rejected if the event ID is mandatory            |
+| TC-040 | Submit a bet with an unsupported result value                     | Request is rejected and no unintended balance changes occur |
+
+
+
+
+## 8. WIN/LOSS and Settlement Validation
+
+| ID     | Test Scenario                                | Expected Result                                                                                |
+| ------ | -------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| TC-041 | Process a valid WIN settlement               | The correct payout is applied according to the game rules and the resulting balance is correct |
+| TC-042 | Process a valid LOSS settlement              | The loss is recorded correctly and the balance reflects the applicable business rules          |
+| TC-043 | Submit the same WIN settlement twice         | The payout is not credited more than once                                                      |
+| TC-044 | Verify settlement records in the database    | Bet, transaction, and wallet records remain consistent                                         |
+| TC-045 | Interrupt processing during a balance update | Failed processing does not leave partial or inconsistent financial records                     |
+
+
+
+## 9. Security and API Response Validation
+
+| ID     | Test Scenario                                                                                  | Expected Result                                                             |
+| ------ | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| TC-046 | Send a request with a malformed JSON body                                                      | The API handles the invalid payload safely and returns an appropriate error |
+| TC-047 | Verify that sensitive credentials and tokens are not exposed in API errors or application logs | Sensitive values are not unnecessarily disclosed                            |
+| TC-048 | Verify the response schema for a successful BET request                                        | Required fields have the expected names and data types                      |
+| TC-049 | Send repeated requests using the same idempotency key or event ID                              | Only one financial operation is applied                                     |
+| TC-050 | Verify that a rejected request does not create unintended financial transactions               | No unauthorized balance change or unintended transaction is recorded        |
+
+## Additional Execution Notes
+
+- Execute settlement test cases only if the API or test environment supports the relevant WIN/LOSS workflow.
+- Confirm payout calculations and settlement rules against the actual game specification.
+- Use an isolated test account and record the initial and final wallet balances.
+- For interruption and concurrency scenarios, verify both database consistency and the API response.
+- Mark unsupported scenarios as Not Applicable (N/A), and unexecuted scenarios as Not Run. Do not mark a test as Passed without evidence.
