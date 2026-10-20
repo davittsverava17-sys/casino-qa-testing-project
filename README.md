@@ -281,9 +281,11 @@ Prometheus was used to collect application metrics, while Grafana was used to vi
 
 ![Prometheus API Health](../../raw/main/screenshots/monitoring/02-prometheus-api-health.png)
 
-**3. Grafana k6 Load Test Monitoring**
+ 
 
-![Grafana k6 Load Test](../../raw/main/screenshots/monitoring/03-grafana-k6-load-test.png)
+### 3. Grafana k6 Load Test Monitoring
+
+![Grafana k6 Load Test](https://raw.githubusercontent.com/davittsverava17-sys/casino-qa-testing-project/main/screenshots/monitoring/03-grafana-k6-load-test.png)
 
 
  
