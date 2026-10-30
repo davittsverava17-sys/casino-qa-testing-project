@@ -142,6 +142,7 @@ The project includes a casino gaming interface with Blackjack, Roulette, and Slo
 ### Frontend Screenshot
 
 ![Casino Frontend](screenshots/frontend/01-casino-frontend.png)
+![Casino Frontend](screenshots/frontend/02-casino-frontend.png).
 
 
 
