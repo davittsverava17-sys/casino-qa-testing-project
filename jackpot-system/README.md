@@ -83,3 +83,41 @@ The following scenarios should be verified:
 ## 5. Project Goal
 
 The goal of this module is to demonstrate the implementation and QA testing of a Progressive Jackpot System in an online casino environment.
+
+
+
+
+
+## 6. Screenshots & QA Evidence
+
+The following screenshots demonstrate the Jackpot System functionality and testing results.
+
+### Slots Jackpot
+![Slots Jackpot](screenshots/01-jackpot-slots.png)
+
+### Roulette Jackpot
+![Roulette Jackpot](screenshots/02-jackpot-roulette.png)
+
+### Progressive Jackpot Accumulation
+![Jackpot Accumulation](screenshots/03-jackpot-accumulation.png)
+
+### Jackpot Win Animation
+![Jackpot Win Animation](screenshots/04-jackpot-win-animation.png)
+
+### Jackpot Payout – Postman API Testing
+
+![Jackpot Payout Response](screenshots/05a-jackpot-payout-response.png)
+
+![Wallet Balance Verification](screenshots/05b-wallet-balance.png)
+
+![Jackpot Transaction History](screenshots/05c-jackpot-transaction.png)
+
+### WebSocket Real-Time Updates
+![Jackpot WebSocket](screenshots/06-jackpot-websocket.png)
+
+## 7. Testing Tools
+
+- Postman – API testing and response validation
+- MySQL – Database and wallet verification
+- Chrome DevTools – WebSocket monitoring
+- GitHub – Test documentation and evidence management
