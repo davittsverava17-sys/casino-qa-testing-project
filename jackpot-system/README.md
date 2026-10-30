@@ -93,20 +93,21 @@ The goal of this module is to demonstrate the implementation and QA testing of a
 The following screenshots demonstrate the Jackpot System functionality and testing results.
 
 ### Slots Jackpot
-![Slots Jackpot](screenshots/01-jackpot-slots.png)
+![Slots Jackpot](screenshots/01-casino-frontend.png)
 
 ### Roulette Jackpot
 ![Roulette Jackpot](screenshots/02-jackpot-roulette.png)
 
 ### Progressive Jackpot Accumulation
 ![Jackpot Accumulation](screenshots/03-jackpot-accumulation.png)
+![Jackpot Accumulation](screenshots/04-jackpot-accumulation.png)
 
 ### Jackpot Win Animation
-![Jackpot Win Animation](screenshots/04-jackpot-win-animation.png)
+![Jackpot Win Animation](screenshots/05-jackpot-win-animation.png)
 
 ### Jackpot Payout – Postman API Testing
 
-![Jackpot Payout Response](screenshots/05a-jackpot-payout-response.png)
+![Jackpot Payout Response](screenshots/05ა-wallet-balance.png)
 
 ![Wallet Balance Verification](screenshots/05b-wallet-balance.png)
 
