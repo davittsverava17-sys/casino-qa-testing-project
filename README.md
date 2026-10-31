@@ -143,7 +143,7 @@ The project includes a casino gaming interface with Blackjack, Roulette, and Slo
 
 ![Casino Frontend](screenshots/frontend/01-casino-frontend.png)
 ![Casino Frontend](screenshots/frontend/02-casino-frontend.png).
-![Casino Frontend](screenshots/frontend/03-casino-frontend.png).
+![Casino Frontend](screenshots/frontend/11-slots-frontend.png).
 
 
 ## Playwright E2E Testing
