@@ -93,7 +93,7 @@ The goal of this module is to demonstrate the implementation and QA testing of a
 The following screenshots demonstrate the Jackpot System functionality and testing results.
 
 ### Slots Jackpot
-![Slots Jackpot](screenshots/01-casino-frontend.png)
+![Slots Jackpot](screenshots/01-jackpot-slots.png)
 
 ### Roulette Jackpot
 ![Roulette Jackpot](screenshots/02-jackpot-roulette.png)
